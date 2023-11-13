@@ -151,15 +151,18 @@ public class Game {
     public String checkGameWinner(char [][]grid){
         String result = "None";
         //Student code goes here ...
-        //dodać do if pętlę sprawdzającą kolejne wiersze i kolumny
-        for (int i=0; i<3; i++) {
-            for (int j = 0 j < 3; j++) {
-                if(checkGameWinner().charAt()  == 'x'){
-                    result = "X wins";
-                }else if(checkGameWinner([i][] == 'o' || [][j] == 'o' || [i][j] == 'o')){
-                    result = "O Wins";
-                }else if(checkGameWinner(([i][] != 'o' || [][j] != 'o' || [i][j] != 'o') && ([i][] != 'x' || [][j] != 'x' || [i][j] != 'x'))){
-                    result = "Tie";
+//dodać do if pętlę sprawdzającą kolejne wiersze i kolumny
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (i == 0 ) {
+                    if (grid[i][j] == grid[i + 1][j] && grid[i][j] == grid[i +2][j]) {
+                        result = grid[i][j] + "wins";
+                    }
+                    else if(j == 0){
+                        if (grid[i][j] == grid[i][j + 1] && grid[i][j] == grid[i][j +2]) {
+                            result = grid[i][j] + "wins";}
+                    }
 
                 }
             }
