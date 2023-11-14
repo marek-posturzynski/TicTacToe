@@ -152,8 +152,8 @@ public class Game {
         String result = "None";
         //Student code goes here ...
 //dodać do if pętlę sprawdzającą kolejne wiersze i kolumny
-        char [] param ={'x' , 'o'};
-        String [] text ={"Xwins" , "Owins"};
+        char [] param ={'x', 'o'};
+        String [] text ={"x wins", "o wins"};
 
         for (int j = 0; j < param.length; j++) {
 
@@ -162,7 +162,7 @@ public class Game {
             if (grid[0][2] == param[j] && grid[1][1] == param[j] && grid[2][0] == param[j])
                 return text[j];
 
-            for (int i = 0; i < param.length; i++) {
+            for (int i = 0; i <= param.length; i++) {
                 if (grid[0][i] == param[j] && grid[1][i] == param[j] && grid[2][i] == param[j])
                     return text[j];
 
@@ -170,6 +170,14 @@ public class Game {
                     return text [j];
             }
         }
+        int total = 0;
+        for (char[] chars : grid) {
+            for (int j = 0; j < grid.length; j++)
+                if (!(chars[j] == '-'))
+                    total += 1;
+        }
+        if(total == grid.length * grid.length)
+            return "Tie";
         return result;
     }
 
