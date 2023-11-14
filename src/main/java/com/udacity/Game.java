@@ -136,7 +136,7 @@ public class Game {
                 turn = 'x';
             }
         }
-        return;
+
     }
 
 
@@ -152,19 +152,22 @@ public class Game {
         String result = "None";
         //Student code goes here ...
 //dodać do if pętlę sprawdzającą kolejne wiersze i kolumny
+        char [] param ={'x' , 'o'};
+        String [] text ={"Xwins" , "Owins"};
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (i == 0 ) {
-                    if (grid[i][j] == grid[i + 1][j] && grid[i][j] == grid[i +2][j]) {
-                        result = grid[i][j] + "wins";
-                    }
-                    else if(j == 0){
-                        if (grid[i][j] == grid[i][j + 1] && grid[i][j] == grid[i][j +2]) {
-                            result = grid[i][j] + "wins";}
-                    }
+        for (int j = 0; j < param.length; j++) {
 
-                }
+            if (grid[0][0] == param[j] && grid[1][1] == param[j] && grid[2][2] == param[j])
+                return text[j];
+            if (grid[0][2] == param[j] && grid[1][1] == param[j] && grid[2][0] == param[j])
+                return text[j];
+
+            for (int i = 0; i < param.length; i++) {
+                if (grid[0][i] == param[j] && grid[1][i] == param[j] && grid[2][i] == param[j])
+                    return text[j];
+
+                if (grid[i][0] == param[j] && grid[i][1] == param[j] && grid[i][2] == param[j])
+                    return text [j];
             }
         }
         return result;
@@ -174,7 +177,7 @@ public class Game {
      * Main function
      * @param args command line arguments
      */
-    public static void main(String args[]){
+    public static void main(String[] args){
         Game game = new Game();
         gui = new GameUI(game);
     }
